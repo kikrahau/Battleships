@@ -1,5 +1,3 @@
 
 
-describe Board do
-
-
+# describe Board do
