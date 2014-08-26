@@ -39,7 +39,7 @@ is created and the *Ships* are made ready.
 
 Every time a *Ship* is hit the *Game* class keeps a tally. Once all ships have been hit, *Game* notifies the players of who has won the game.
 
-**Player**
+####**Player**
 
 ####**Board**
 
@@ -54,5 +54,5 @@ Player, Ship, Game
 ######*Interactions*
 The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.  If a *Ship* has been hit, the *Board* will notify the *Ship*.    
 
-**Ship**
+####**Ship**
 The game
