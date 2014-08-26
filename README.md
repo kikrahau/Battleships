@@ -2,19 +2,13 @@
 
 ## Description
 
-This project is to develop more advanced skills in Object Orientated
-design and programming.
+The aim of this project is to develop more advanced skills in Object Orientated design and programming.
 
-The task is to build a game that model the paper-based game,
-Battleships. Each player has a 10x10 two dimensional board which they place a number of
-battleships of varying sizes.
+The task is to build a game that models the board game, Battleships. Each player has a 10x10 two dimensional board which they place a number of battleships of varying sizes.
 
-Once each player places their ships on their board they takes turns to
-take shots at their opponents board. If the square is occupied by
-a ship the attacking player notes a hit and a miss if the grid is empty.
+Once each player places their ships on their board they takes turns to take shots at their opponents board. If the square is occupied by a ship the attacking player notes a hit and a miss if the grid is empty.  Whenever a ship has been fully hit, the opposing player is notified that the ship has sunk.  
 
-The game is over when all of one player's ships have been. The winner is
-the player with ships left on the board.
+The game is over when all of one player's ships have been. The winner is the player with ships left on the board.
 
 ## Domain Model
 
