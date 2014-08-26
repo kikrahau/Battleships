@@ -1,10 +1,15 @@
 class Cell
 
+  def initialize
+    @water = true
+  end
+
 	def has_water?
-		true
+		@water
 	end
 
 	def ship!
+    @water = false
 	end
 
 	def has_ship?
