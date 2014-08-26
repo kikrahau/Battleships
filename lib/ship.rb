@@ -10,9 +10,17 @@ DEFAULT_BADASS_RATING = 5
 		@badass_rating = DEFAULT_BADASS_RATING
 	end
 
+	def hit
+		@badass_rating -= 1
+		return sink! if @badass_rating == 0
+	end
+
 	def sink!
 		@floating = false
 		self
 	end
 
 end
+
+
+

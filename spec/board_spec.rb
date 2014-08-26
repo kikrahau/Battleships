@@ -13,11 +13,7 @@ describe Board do
 	it "should have a 100 cells" do
 		expect(board.cells.count).to eq 100
 	end
-
-  	xit 'all cells should be initialized containing water' do
-    	expect(board.cells.all_water?).to be true
-  	end
-
-
-
+  xit 'all cells should be initialized containing water' do
+    expect(board.cells.all_water?).to be true
+  end
 end
