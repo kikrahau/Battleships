@@ -1,9 +1,14 @@
 class Ship
 
-attr_reader :floating
+attr_accessor :floating
 
 	def initialize
 		@floating = true
+	end
+
+	def sink!
+		@floating = false
+		self
 	end
 
 end
