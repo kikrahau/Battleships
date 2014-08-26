@@ -41,6 +41,18 @@ Every time a *Ship* is hit the *Game* class keeps a tally. Once all ships have b
 
 **Player**
 
+######*Collaborators*
+Game, Board, Ship
+
+######*Responsibilities*
+1. Place Ships on the board
+2. Shoots at a square on the opponents board
+
+######*Interactions*
+The *Player* class tells the game class to initialize a new game.
+Once the *Board* and the *Ships* are initialized, it's up to the *Player* to place the *Ships* where he likes.
+Once the set-up is done two different *Player* take turns with deciding where to take a shot on the other *Players* *Board*.
+
 **Board**
 
 **Ship**
