@@ -9,7 +9,7 @@ describe Board do
 
 	end
 
-	# it "should have a 100 cells" do
-	# 	expect(board.cells.count).to eq 100
-	# end
+	it "should have a 100 cells" do
+		expect(board.cells.count).to eq 100
+	end
 end
