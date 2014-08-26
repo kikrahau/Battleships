@@ -15,4 +15,8 @@ class Cell
 	def has_ship?
 		true
 	end
+
+	def has_hit?
+		false
+	end
 end
