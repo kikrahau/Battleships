@@ -26,13 +26,18 @@ the player with ships left on the board.
 Player, Board, Ship
 
 ######*Responsibilities*
+1. Initialise game
+2. Reset Game
+3. Keeps a tally of number of hits ship receives
+4. Keeps score of overall games won
+5. Declares the winner
 
 ######*Interactions*
 The *Game* class is responsible for initialising the start of the game
 by interacting with the *Player* class. Upon initialisation the *Board*
 is created and the *Ships* are made ready.
 
-The  
+Every time a *Ship* is hit the *Game* class keeps a tally. Once all ships have been hit, *Game* notifies the players of who has won the game.
 
 **Player**
 
