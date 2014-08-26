@@ -20,5 +20,19 @@ the player with ships left on the board.
 
 #### Classes
 
+**Game**
 
+*Collborators*
+Players, Board, Ships
+
+*Interactions*
+The *Game* class is responsible for initializing the start of the game
+by interaacting with the *Player* class. Upon initialization the board
+is created and the ships are 
+
+**Player**
+
+**Baord**
+
+**Ship**
 The game
