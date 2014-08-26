@@ -23,12 +23,16 @@ the player with ships left on the board.
 #####**Game**
 
 ######*Collaborators*
-Players, Board, Ships
+Player, Board, Ship
+
+######*Responsibilities*
 
 ######*Interactions*
 The *Game* class is responsible for initialising the start of the game
-by interacting with the *Player* class. Upon initialisation the board
-is created and the ships are 
+by interacting with the *Player* class. Upon initialisation the *Board*
+is created and the *Ships* are made ready.
+
+The  
 
 **Player**
 
