@@ -42,10 +42,12 @@ The
 Player, Ship, Game
 
 ######*Responsibilities*
-The *Board* class is responsible for knowing how big the board is, which grid spaces are occupied and where the player has sent missiles (including hits and misses).  
+1. Knows the board size is
+2. Knows which grid spaces are occupied by ships
+3. Knows where players have deployed missiles
 
 ######*Interactions*
-
+The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.  If a *Ship* has been hit, the *Board* will notify the *Ship*.    
 
 **Ship**
 The game
