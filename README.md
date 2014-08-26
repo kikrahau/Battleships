@@ -50,6 +50,18 @@ The *Ship* class interects with the *Player* class once the game beings in order
 
  Once 'Sunk', the *Ship* class interacts with the *Game* class to tell the *Game* class that the *Ship* class is no longer in action and in effect, removed from play.
 
+######*Collaborators*
+Game, Board, Ship
+
+######*Responsibilities*
+1. Place Ships on the board
+2. Shoots at a square on the opponents board
+
+######*Interactions*
+The *Player* class tells the game class to initialize a new game.
+Once the *Board* and the *Ships* are initialized, it's up to the *Player* to place the *Ships* where he likes.
+Once the set-up is done two different *Player* take turns with deciding where to take a shot on the other *Players* *Board*.
+
 ####**Board**
 
 ######*Collaborators*
