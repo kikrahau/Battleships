@@ -20,7 +20,7 @@ the player with ships left on the board.
 
 #### Classes
 
-#####**Game**
+####**Game**
 
 ######*Collaborators*
 Player, Board, Ship
@@ -41,7 +41,7 @@ Every time a *Ship* is hit the *Game* class keeps a tally. Once all ships have b
 
 **Player**
 
-**Board**
+####**Board**
 
 ######*Collaborators*
 Player, Ship, Game
