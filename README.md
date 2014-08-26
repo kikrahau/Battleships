@@ -33,7 +33,22 @@ is created and the *Ships* are made ready.
 
 Every time a *Ship* is hit the *Game* class keeps a tally. Once all ships have been hit, *Game* notifies the players of who has won the game.
 
-####**Player**
+#####**Ship**
+
+######*Collaborators*
+Player, Board, Game
+
+######*Responsibilities*
+1. Has 'Floating' status once initialized
+2. Acknowledges hits
+3. Tallys hits
+4. Changes ship status to 'Sunk' after maximum hit number
+5. Tells Game that its status is changed to 'removed from play'
+
+######*Interactions*
+The *Ship* class interects with the *Player* class once the game beings in order to gain its position on the board. It is responsible for knowing how many hits it can take/tally, before its status is changed from its initialized state of 'Floating' to 'Sunk'.
+
+ Once 'Sunk', the *Ship* class interacts with the *Game* class to tell the *Game* class that the *Ship* class is no longer in action and in effect, removed from play.
 
 ####**Board**
 
@@ -46,7 +61,6 @@ Player, Ship, Game
 3. Knows where players have deployed missiles
 
 ######*Interactions*
-The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.  If a *Ship* has been hit, the *Board* will notify the *Ship*.    
+The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.  If a *Ship* has been hit, the *Board* will notify the *Ship*.
 
-####**Ship**
-The game
+
