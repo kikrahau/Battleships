@@ -20,7 +20,7 @@ the player with ships left on the board.
 
 #### Classes
 
-#####**Game**
+####**Game**
 
 ######*Collaborators*
 Player, Board, Ship
@@ -39,10 +39,6 @@ is created and the *Ships* are made ready.
 
 Every time a *Ship* is hit the *Game* class keeps a tally. Once all ships have been hit, *Game* notifies the players of who has won the game.
 
-**Player**
-
-**Board**
-
 #####**Ship**
 
 ######*Collaborators*
@@ -60,4 +56,17 @@ The *Ship* class interects with the *Player* class once the game beings in order
 
  Once 'Sunk', the *Ship* class interacts with the *Game* class to tell the *Game* class that the *Ship* class is no longer in action and in effect, removed from play.
 
-The game
+####**Board**
+
+######*Collaborators*
+Player, Ship, Game
+
+######*Responsibilities*
+1. Knows the board size is
+2. Knows which grid spaces are occupied by ships
+3. Knows where players have deployed missiles
+
+######*Interactions*
+The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.  If a *Ship* has been hit, the *Board* will notify the *Ship*.
+
+
