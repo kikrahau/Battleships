@@ -12,6 +12,8 @@ describe Ship do
 			expect(ship.sink!.floating).to eq false
 		end
 
-
+		it 'should know just how BADASS it is upon initialization' do
+			expect(ship.badass_rating).to eq 5
+		end
 
 	end
