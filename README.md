@@ -38,5 +38,14 @@ The
 
 **Board**
 
+######*Collaborators*
+Player, Ship, Game
+
+######*Responsibilities*
+The *Board* class is responsible for knowing how big the board is, which grid spaces are occupied and where the player has sent missiles (including hits and misses).  
+
+######*Interactions*
+
+
 **Ship**
 The game
