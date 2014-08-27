@@ -10,10 +10,9 @@ DEFAULT_BADASS_RATING = 5
 		@badass_rating = badass_rating
 	end
 
-	def hit
+	def hit_counter
 		@badass_rating -= 1
 		sink! if @badass_rating == 0
-
 	end
 
 	def sink!

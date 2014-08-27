@@ -19,12 +19,12 @@ describe Ship do
 	end
 
 	it 'should acknowledge each time it gets wounded in battle by cowards!!!!' do
-		ship.hit
+		ship.hit_counter
 		expect(ship.badass_rating).to eq 4
 	end
 
 	it 'should tally up the missile hits for future retribution!!!' do
-		5.times{ship.hit}
+		5.times{ship.hit_counter}
 		expect(ship.floating).to eq false
 	end
 	

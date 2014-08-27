@@ -1,4 +1,4 @@
-
+require './lib/ship'
 
 class Cell
 
@@ -29,8 +29,8 @@ attr_accessor :cell_content, :hit
 		@hit = true
 	end
 
-	def hit_ship?
-		true
+	def hit(ship)
+		ship.hit_counter if has_ship? 
 	end
 
 end
