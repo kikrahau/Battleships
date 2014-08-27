@@ -32,5 +32,7 @@ attr_accessor :cell_content, :hit
 	def hit_ship?
 		true
 	end
+`
+
 
 end
