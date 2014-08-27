@@ -1,3 +1,5 @@
+require './lib/ship'
+
 class Player
 
 # attr_accessor :fire_missile
@@ -12,6 +14,11 @@ class Player
 
 	def place_ship(cell)
 		cell.occupation
+	end
+
+
+	def ships
+		[]
 	end
 
 end
