@@ -22,4 +22,8 @@ describe Cell do
   		expect(cell.has_hit?).to be false
   	end
 
+  	it 'should be able to register hits' do
+  		cell.hit!
+  		expect(cell.has_hit?).to be true
+  	end
 end
