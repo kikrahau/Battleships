@@ -7,7 +7,7 @@ class Player
 	# end
 
 	def fire_missile_at(cell)
-		cell.hit
+		cell.hit!
 	end
 
 	def place_ship(cell)

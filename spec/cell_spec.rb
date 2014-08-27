@@ -2,8 +2,9 @@ require "cell"
 
 describe Cell do
 
-	let(:cell) { Cell.new     }
-  let(:ship) { double :ship }
+	let(:cell)   { Cell.new     }
+  let(:ship)   { double :ship }
+  let(:player) { double :player }
 
 	it "should initially have content of water" do
 		expect(cell.cell_content?).to be nil
@@ -26,5 +27,10 @@ describe Cell do
   		cell.hit!
   		expect(cell.has_hit?).to be true
   	end
+
+    it 'should send a hit to ship, if occupied by a ship' do
+      allow(player).to receive(:fire_missile_at).with(any_args())
+      expect(cell.hit_ship?).to be true
+    end
 
 end

@@ -1,4 +1,4 @@
-require 'water'
+
 
 class Cell
 
@@ -14,7 +14,7 @@ attr_accessor :cell_content, :hit
   end
 
 	def ship!(ship)
-    	@cell_content = ship
+    @cell_content = ship
 	end
 
 	def has_ship?
@@ -27,6 +27,10 @@ attr_accessor :cell_content, :hit
 
 	def hit!
 		@hit = true
+	end
+
+	def hit_ship?
+		true
 	end
 
 end
