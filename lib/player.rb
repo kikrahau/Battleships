@@ -14,4 +14,9 @@ class Player
 		cell.occupation
 	end
 
+
+	# def ships
+	# 	[Destroyer.new, AircraftCarrier.new, CannibalSubmarine.new]
+	# end
+
 end
