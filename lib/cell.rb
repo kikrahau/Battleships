@@ -24,4 +24,8 @@ class Cell
 	def hit!
 		@hit = true
 	end
+
+  def place_ship(ship)
+    ship
+  end
 end

@@ -2,7 +2,7 @@ require "cell"
 
 describe Cell do
 
-	let(:cell) { Cell.new }
+	let(:cell) { Cell.new     }
 
 	it "should initially contain water" do
 		expect(cell.has_water?).to be true
@@ -26,4 +26,9 @@ describe Cell do
   		cell.hit!
   		expect(cell.has_hit?).to be true
   	end
+
+    it'can place a ship' do
+      ship = double(:ship)
+      expect(cell.place_ship(ship)).to eq(ship)
+    end
 end
