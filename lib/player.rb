@@ -10,8 +10,13 @@ class Player
 
 	attr_reader :grid
 
+<<<<<<< HEAD
 	def fire_missile_at(opponent_board, at_coordinate)
 		opponent_board.grid[at_coordinate].hit!
+=======
+	def fire_missile_at(cell)
+		cell.hit!
+>>>>>>> 58b16852812855185ea2b659401996dea9f469c5
 	end
 
 	def place_ship(ship)

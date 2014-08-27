@@ -2,8 +2,9 @@ require "cell"
 
 describe Cell do
 
-	let(:cell) { Cell.new     }
-  let(:ship) { double :ship }
+	let(:cell)   { Cell.new     }
+  let(:ship)   { double :ship,  badass_rating: 5 }
+  let(:player) { double :player }
 
 	it "should initially have content of water" do
 		expect(cell.cell_content?).to be nil
@@ -27,4 +28,29 @@ describe Cell do
   		expect(cell.has_hit?).to be true
   	end
 
+    it 'should send a hit to ship, if occupied by a ship' do
+      cell.ship!(ship)
+      expect(ship).to receive(:hit_counter)
+      cell.hit!
+    end
+
+    it 'should not allow a missile to land in the same spot twice' do
+      cell.hit!
+      expect{(cell.hit!)}.to raise_error
+    end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

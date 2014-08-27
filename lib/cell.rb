@@ -1,4 +1,4 @@
-require 'water'
+require './lib/ship'
 
 class Cell
 
@@ -14,7 +14,7 @@ attr_accessor :cell_content, :hit
   end
 
 	def ship!(ship)
-    	@cell_content = ship
+    @cell_content = ship
 	end
 
 	def has_ship?
@@ -26,7 +26,12 @@ attr_accessor :cell_content, :hit
 	end
 
 	def hit!
+		raise "HAHAHAAAAA YOU FOOLS!!! YOU ALREADY HIT THERE!!!" if @hit == true
+		if has_ship?
+			@cell_content.hit_counter
+		end
 		@hit = true
 	end
+
 
 end
