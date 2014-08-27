@@ -6,7 +6,7 @@ let(:player)	{ Player.new }
 let(:cell) 		{ double :cell }
 let(:ship) 		{ double :ship }
 
-	it 'should be able to fire missiles at the shameless rebel ships' do
+	xit 'should be able to fire missiles at the shameless rebel ships' do
 		expect(cell).to receive(:hit)
 		player.fire_missile_at(cell)
 	end
