@@ -16,4 +16,8 @@ let(:ship) 		{ double :ship }
 		player.place_ship(cell)
 	end
 
+	it 'should have a ship yard containing ships' do
+		expect(player.ships).to eq []
+	end
+
 end

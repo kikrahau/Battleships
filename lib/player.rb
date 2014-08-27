@@ -1,3 +1,5 @@
+require './lib/ship'
+
 class Player
 
 # attr_accessor :fire_missile
@@ -15,8 +17,8 @@ class Player
 	end
 
 
-	# def ships
-	# 	[Destroyer.new, AircraftCarrier.new, CannibalSubmarine.new]
-	# end
+	def ships
+		[]
+	end
 
 end
