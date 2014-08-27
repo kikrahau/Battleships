@@ -1,31 +1,33 @@
+require 'water'
+
 class Cell
 
   def initialize
-    @water = true
-    @hit = false
+  	@cell_content = nil
+    # @hit = false
   end
 
-	def has_water?
-		@water
-	end
+  def cell_content?
+  	@cell_content 
+  end
 
-	def ship!
-    @water = false
+	def ship!(ship)
+    	@cell_content = ship
 	end
 
 	def has_ship?
-		true
+		return true unless @cell_content == nil
 	end
 
-	def has_hit?
-		@hit
-	end
+	# def has_hit?
+	# 	@hit
+	# end
 
-	def hit!
-		@hit = true
-	end
+	# def hit!
+	# 	@hit = true
+	# end
 
-  def place_ship(ship)
-    ship
-  end
+ #  def place_ship(ship)
+ #    ship
+ #  end
 end
