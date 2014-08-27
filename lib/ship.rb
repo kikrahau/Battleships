@@ -20,9 +20,16 @@ DEFAULT_BADASS_RATING = 5
 		self
 	end
 
-
+	class CannibalSubmarine < Ship
+		def initialize
+			super(2)
+		end		
+	end
 
 	class AircraftCarrier < Ship
+		def initialize
+			super(3)
+		end		
 	end
 
 	class Destroyer < Ship

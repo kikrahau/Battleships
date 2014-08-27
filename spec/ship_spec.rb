@@ -37,7 +37,6 @@ describe Ship do
 		it 'should have a different badass rating' do
 			expect(destroyer.badass_rating).to eq 4
 		end
-
 	end
 
  end
