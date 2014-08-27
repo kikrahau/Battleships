@@ -34,11 +34,23 @@ describe Cell do
       cell.hit(ship)
     end
 
-    # it 'should tell the ship if it has been hit' do 
-    #   cell.ship!(ship)
-    #   expect(ship).to receive(:hit_counter)
-    #   # expect(ship).to receive(:badass_rating).and_return(4)
-    #   cell.hit(ship)
-    # end
+    it 'should not allow a missile to land in the same spot twice' do
+      cell.hit!
+      expect{(cell.hit!)}.to raise_error
+    end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
