@@ -2,6 +2,7 @@ class Cell
 
   def initialize
     @water = true
+    @hit = false
   end
 
 	def has_water?
@@ -17,6 +18,10 @@ class Cell
 	end
 
 	def has_hit?
-		false
+		@hit
+	end
+
+	def hit!
+		@hit = true
 	end
 end
