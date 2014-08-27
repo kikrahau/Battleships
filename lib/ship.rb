@@ -3,7 +3,7 @@ class Ship
 
 attr_accessor :floating, :badass_rating
 
-DEFAULT_BADASS_RATING = 5
+DEFAULT_BADASS_RATING = 3
 
 	def initialize(badass_rating = DEFAULT_BADASS_RATING)
 		@floating = true
@@ -20,15 +20,9 @@ DEFAULT_BADASS_RATING = 5
 		self
 	end
 
-	class CannibalSubmarine < Ship
+	class PaddleBoat < Ship
 		def initialize
 			super(2)
-		end		
-	end
-
-	class AircraftCarrier < Ship
-		def initialize
-			super(3)
 		end		
 	end
 
@@ -36,6 +30,18 @@ DEFAULT_BADASS_RATING = 5
 		def initialize
 			super(4)
 		end
+	end
+
+	class AircraftCarrier < Ship
+		def initialize
+			super(5)
+		end		
+	end
+
+	class GunbustingBattleship < Ship
+	end
+
+	class CannibalSubmarine < Ship
 	end
 
 end
