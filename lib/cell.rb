@@ -2,13 +2,15 @@ require 'water'
 
 class Cell
 
+attr_accessor :cell_content, :hit
+
   def initialize
   	@cell_content = nil
-    # @hit = false
+    @hit = false
   end
 
   def cell_content?
-  	@cell_content 
+  	@cell_content
   end
 
 	def ship!(ship)
@@ -19,15 +21,12 @@ class Cell
 		return true unless @cell_content == nil
 	end
 
-	# def has_hit?
-	# 	@hit
-	# end
+	def has_hit?
+		@hit
+	end
 
-	# def hit!
-	# 	@hit = true
-	# end
+	def hit!
+		@hit = true
+	end
 
- #  def place_ship(ship)
- #    ship
- #  end
 end
