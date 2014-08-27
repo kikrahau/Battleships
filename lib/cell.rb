@@ -27,11 +27,11 @@ attr_accessor :cell_content, :hit
 
 	def hit!
 		raise "HAHAHAAAAA YOU FOOLS!!! YOU ALREADY HIT THERE!!!" if @hit == true
+		if has_ship?
+			@cell_content.hit_counter
+		end
 		@hit = true
 	end
 
-	def hit(ship)
-		ship.hit_counter if has_ship?
-	end
 
 end

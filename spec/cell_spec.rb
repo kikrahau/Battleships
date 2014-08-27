@@ -31,7 +31,7 @@ describe Cell do
     it 'should send a hit to ship, if occupied by a ship' do
       cell.ship!(ship)
       expect(ship).to receive(:hit_counter)
-      cell.hit(ship)
+      cell.hit!
     end
 
     it 'should not allow a missile to land in the same spot twice' do
