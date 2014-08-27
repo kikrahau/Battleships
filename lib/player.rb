@@ -4,16 +4,18 @@ class Player
 
 # attr_accessor :fire_missile
 
-	# def intitialize
-	# 	@fire_missile
-	# end
-
-	def fire_missile_at(cell)
-		cell.hit
+	def intitialize(board: :just_a_board)
+		@board = board
 	end
 
-	def place_ship(cell)
-		cell.occupation
+	attr_reader :grid
+
+	def fire_missile_at(opponent_board, at_coordinate)
+		opponent_board.grid[at_coordinate].hit!
+	end
+
+	def place_ship(ship)
+		cell.ship!(ship)
 	end
 
 

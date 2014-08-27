@@ -6,17 +6,24 @@ let(:player)	{ Player.new }
 let(:cell) 		{ double :cell }
 let(:ship) 		{ double :ship }
 
-	it 'should be able to fire missiles at the shameless rebel ships' do
-		expect(cell).to receive(:hit)
-		player.fire_missile_at(cell)
+	it 'should be able to fire missiles at cells' do
+		opponent_grid  = double :grid
+		opponent_board = double :board, grid: opponent_grid
+		at_coordinate  = 'A1'
+
+		expect(opponent_grid).to receive(:[]).with(at_coordinate).and_return(cell) 
+		expect(cell).to receive(:hit!)
+
+		player.fire_missile_at(opponent_board, at_coordinate)
 	end
 
-	it 'should be able to place ships on the War Room Map' do
-		allow(cell).to receive(:occupation)
-		player.place_ship(cell)
+	xit 'should be able to place ships on the War Room Map' do
+		player.place_ship(ship)
+		allow(cell).to receive(:ship!).with(any_args())
+		expect(cell).to 
 	end
 
-	it 'should have a ship yard containing ships' do
+	xit 'should have a ship yard containing ships' do
 		expect(player.ships).to eq []
 	end
 
