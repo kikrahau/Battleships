@@ -51,5 +51,22 @@ let(:board)		{ double :board, cell: cell}
 		player.place(destroyer, "A1", :horizontal)
 	end
 
+	it 'can place his ships on the board' do
+		allow_message_expectations_on_nil
+		grid      = double :grid
+		destroyer = double :ship, badass_rating: 4
+		player    = Player.new(fleet: [destroyer], board: board)
+		locations = ["A1", "A2", "A3", "A4"]
+		allow(board).to receive(:grid).and_return(grid)
+		locations.each do |location|
+		allow(grid).to receive(:[]).with(location)
+	end
 
+		locations.each do |location|
+			expect(board.grid[location]).to receive(:place).with(destroyer)
+	end
+
+		player.place(destroyer, "A1", :vertical)
+	end
 end
+

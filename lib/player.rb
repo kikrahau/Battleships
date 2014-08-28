@@ -24,10 +24,13 @@ class Player
 	end
 
 	def place(ship_type, origin, direction)
-		coordinates = ((origin.chars.last.to_i)..ship_type.badass_rating).map{|coord| origin.chars.first << coord.to_s}
-		coordinates.each do |coordinate|
+		if direction == horizontal
+			coordinates = ((origin.chars.last.to_i)..ship_type.badass_rating).map{|coord| origin.chars.first << coord.to_s}
+			coordinates.each do |coordinate|
 			@board.grid[coordinate].place(ship_type)
 		end
+		else
+		end	
 	end
 
 end

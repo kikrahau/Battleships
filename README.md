@@ -6,7 +6,7 @@ The aim of this project is to develop more advanced skills in Object Orientated 
 
 The task is to build a game that models the board game, Battleships. Each player has a 10x10 two dimensional board which they place a number of battleships of varying sizes.
 
-Once each player places their ships on their board they takes turns to take shots at their opponents board. If the square is occupied by a ship the attacking player notes a hit and a miss if the grid is empty.  Whenever a ship has been fully hit, the opposing player is notified that the ship has sunk.  
+Once each player places their ships on their board they takes turns to take shots at their opponents board. If the square is occupied by a ship the attacking player notes a hit and a miss if the grid is empty.  Whenever a ship has been fully hit, the opposing player is notified that the ship has sunk.
 
 The game is over when all of one player's ships have been. The winner is the player with ships left on the board.
 
@@ -73,6 +73,6 @@ Player, Ship, Game
 3. Knows where players have deployed missiles
 
 ######*Interactions*
-The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.  If a *Ship* has been hit, the *Board* will notify the *Ship*.
+The *Board* is initialised when the *Game* declares it a new game. Upon starting the *Game*, each *Player* places *Ships* on their *Board*.  Whenever a *Player* has their turn, they nominate a gridpoint to launch their missile.  The *Board* will know if this is a hit or miss.
 
 
