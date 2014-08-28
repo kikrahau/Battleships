@@ -11,6 +11,14 @@ describe Board do
   	expect(board.create_cells).to be_a Hash
 	end
 
+  it "should be able to convert width to an alphabet array" do
+    expect(board.convert_width).to eq "A"
+  end
+
+  it 'should create as many cells as height x width' do
+    expect(board.create_cells).to eq Hash["A1", nil]
+  end
+
   it 'should know that is is empty upon initialization' do
     expect(board).to be_empty
   end

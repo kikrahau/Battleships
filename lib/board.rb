@@ -10,6 +10,10 @@ attr_reader :cells
   	@height = height
   end
 
+  def convert_width
+    (@width + 64).chr
+  end
+
   def access_grid(a,b)
   	if !a.is_a? String or (a.ord - "a".ord) < 0 or \
   		(a.ord - "a".ord) >= @width or !b.is_a?(Integer) or \
@@ -20,7 +24,10 @@ attr_reader :cells
   end
 
   def create_cells
-    Hash.new
+    letters = ("A"..convert_width).to_a
+    numbers = (1..@height).to_a
+    board = letters.map { |letter| numbers.map { |number| "#{letter}#{number}" }}
+    Hash[board.flatten.map { |key, value| [key, nil] }]
   end
 
   def cell_count
