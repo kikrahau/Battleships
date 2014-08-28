@@ -32,6 +32,5 @@ attr_accessor :cell_content, :hit
 		end
 		@hit = true
 	end
-
-
+	
 end

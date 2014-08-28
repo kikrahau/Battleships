@@ -5,7 +5,7 @@ class Board
 
 attr_accessor :cells
 
-  def initialize(width, height)
+  def initialize(width = 10, height = 10)
     @width = width
   	@height = height
     @cells = create_cells
@@ -32,11 +32,10 @@ attr_accessor :cells
     Hash[board.flatten.map { |key, value| [key, Cell.new] }]
   end
 
-  def draw_board
+  def display_board
     rows = []
-    board = two_dimension_array
-    board.each {|row| rows << row}
-    table = Terminal::Table.new :title => "Battleships", :headings => (1..@height).to_a, :rows => rows
+    two_dimension_array.each {|row| rows << row}
+    table = Terminal::Table.new :title => "Battleships", :headings => (0..@height).to_a, :rows => rows
     puts table 
   end
 
