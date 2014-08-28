@@ -14,7 +14,7 @@ describe Board do
     expect(board.convert_width).to eq "A"
   end
 
-  xit 'should create as many cells as height x width' do
+  it 'should create as many cells as height x width' do
     expect(board.create_cells).to eq Hash["A1", cell]
   end
 
