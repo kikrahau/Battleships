@@ -8,10 +8,10 @@ class Player
 		@board = board
 	end
 
-	attr_reader :grid
+	attr_reader :cell
 
 	def fire_missile_at(opponent_board, at_coordinate)
-		opponent_board.grid[at_coordinate].hit!
+		opponent_board.cell[at_coordinate].hit!
 	end
 
 	def place_ship(ship)
