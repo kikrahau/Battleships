@@ -14,20 +14,22 @@ attr_reader :cells
     (@width + 64).chr
   end
 
-  def access_grid(a,b)
-  	if !a.is_a? String or (a.ord - "a".ord) < 0 or \
-  		(a.ord - "a".ord) >= @width or !b.is_a?(Integer) or \
-  		b <= 0 or b > @height
+  def check_coordinate(coordinate)
+    x = coordinate[0]
+    y = coordinate[1..2].to_i
+  	if !x.is_a? String or (x.ord - "A".ord) < 0 or \
+  		(x.ord - "A".ord) >= @width or !y.is_a?(Integer) or \
+  		y <= 0 or y > @height
   		raise ArgumentError.new('Input incorrect')
   	end
-  	cell_value = @cells[a + b.to_s]
   end
+
 
   def create_cells
     letters = ("A"..convert_width).to_a
     numbers = (1..@height).to_a
     board = letters.map { |letter| numbers.map { |number| "#{letter}#{number}" }}
-    Hash[board.flatten.map { |key, value| [key, nil] }]
+    Hash[board.flatten.map { |key, value| [key, Cell.new] }]
   end
 
   def cell_count
