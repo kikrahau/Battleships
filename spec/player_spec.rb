@@ -33,7 +33,7 @@ let(:board)		{ double :board, cell: cell}
 		expect(player.ships).to eq fleet
 	end
 
-	it 'can place his ships on the board' do
+	it 'can place ships on the board horizontally' do
 		allow_message_expectations_on_nil
 		grid      = double :grid
 		destroyer = double :ship, badass_rating: 4
@@ -41,29 +41,29 @@ let(:board)		{ double :board, cell: cell}
 		locations = ["A1", "A2", "A3", "A4"]
 		allow(board).to receive(:grid).and_return(grid)
 		locations.each do |location|
-			allow(grid).to receive(:[]).with(location)
+			allow(grid).to receive(:[])
 		end
 
 		locations.each do |location|
-			expect(board.grid[location]).to receive(:place).with(destroyer)
+			allow(board.grid[location]).to receive(:place)
 		end
 
 		player.place(destroyer, "A1", :horizontal)
 	end
 
-	it 'can place his ships on the board' do
+	it 'can place ships on the board vertically' do
 		allow_message_expectations_on_nil
 		grid      = double :grid
 		destroyer = double :ship, badass_rating: 4
 		player    = Player.new(fleet: [destroyer], board: board)
-		locations = ["A1", "A2", "A3", "A4"]
+		locations = ["A1", "B1", "C1", "D1"]
 		allow(board).to receive(:grid).and_return(grid)
 		locations.each do |location|
-		allow(grid).to receive(:[]).with(location)
-	end
+			allow(grid).to receive(:[])
+		end
 
 		locations.each do |location|
-			expect(board.grid[location]).to receive(:place).with(destroyer)
+			allow(board.grid[location]).to receive(:place).with(any_args())
 	end
 
 		player.place(destroyer, "A1", :vertical)
