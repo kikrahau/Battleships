@@ -19,26 +19,26 @@ describe Cell do
     expect(cell.has_ship?).to be true
   end
 
-  	it 'should initially be clear, not containing any hits' do
-  		expect(cell.has_hit?).to be false
-  	end
+	it 'should initially be clear, not containing any hits' do
+		expect(cell.has_hit?).to be false
+	end
 
-  	it 'should be able to register a hit' do
-  		cell.hit!
-  		expect(cell.has_hit?).to be true
-  	end
+	it 'should be able to register a hit' do
+		cell.hit!
+		expect(cell.has_hit?).to be true
+	end
 
-    it 'should send a hit to ship, if occupied by a ship' do
-      cell.ship!(ship)
-      expect(ship).to receive(:hit_counter)
-      cell.hit!
-      # should there be another test here to ensure change made
-    end
+  it 'should send a hit to ship, if occupied by a ship' do
+    cell.ship!(ship)
+    expect(ship).to receive(:hit_counter)
+    cell.hit!
+    # should there be another test here to ensure change made
+  end
 
-    it 'should not allow a missile to land in the same spot twice' do
-      cell.hit!
-      expect{(cell.hit!)}.to raise_error
-    end
+  it 'should not allow a missile to land in the same spot twice' do
+    cell.hit!
+    expect{(cell.hit!)}.to raise_error
+  end
 
 end
 

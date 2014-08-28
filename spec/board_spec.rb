@@ -28,7 +28,7 @@ describe Board do
 
 
   it "should be able to draw a board" do
-    expect(board.draw_board).to eq nil
+    expect(board.display_board).to eq nil
   end
 
 end
