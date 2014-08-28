@@ -15,16 +15,16 @@ describe Ship do
 	end
 
 	it 'should know just how BADASS it is upon initialization' do
-		expect(ship.badass_rating).to eq 5
+		expect(ship.badass_rating).to eq 3
 	end
 
 	it 'should acknowledge each time it gets wounded in battle by cowards!!!!' do
 		ship.hit_counter
-		expect(ship.badass_rating).to eq 4
+		expect(ship.badass_rating).to eq 2
 	end
 
 	it 'should tally up the missile hits for future retribution!!!' do
-		5.times{ship.hit_counter}
+		3.times{ship.hit_counter}
 		expect(ship.floating).to eq false
 	end
 	
@@ -37,7 +37,6 @@ describe Ship do
 		it 'should have a different badass rating' do
 			expect(destroyer.badass_rating).to eq 4
 		end
-
 	end
 
  end

@@ -3,7 +3,7 @@ require "cell"
 describe Cell do
 
 	let(:cell)   { Cell.new     }
-  let(:ship)   { double :ship,  badass_rating: 5 }
+  let(:ship)   { double :ship }
   let(:player) { double :player }
 
 	it "should initially have content of water" do
