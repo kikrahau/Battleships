@@ -45,7 +45,7 @@ let(:board)		{ double :board, cell: cell}
 		end
 
 		locations.each do |location|
-			allow(board.grid[location]).to receive(:place)
+			allow(board.grid[location]).to receive(:place).with(destroyer)
 		end
 
 		player.place(destroyer, "A1", :horizontal)
@@ -63,7 +63,7 @@ let(:board)		{ double :board, cell: cell}
 		end
 
 		locations.each do |location|
-			allow(board.grid[location]).to receive(:place).with(any_args())
+			allow(board.grid[location]).to receive(:place).with(destroyer)
 	end
 
 		player.place(destroyer, "A1", :vertical)
