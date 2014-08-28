@@ -14,7 +14,7 @@ describe Board do
     expect(board.convert_width).to eq "A"
   end
 
-  it 'should create as many cells as height x width' do
+  xit 'should create as many cells as height x width' do
     expect(board.create_cells).to eq Hash["A1", cell]
   end
 
@@ -24,6 +24,11 @@ describe Board do
 
   it "should raise an error messages if incorrect gridpoint is given" do
   		expect{board.check_coordinate("D100")}.to raise_error ArgumentError
+  end
+
+
+  it "should be able to draw a board" do
+    expect(board.draw_board).to eq nil
   end
 
 end

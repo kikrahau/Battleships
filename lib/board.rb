@@ -1,4 +1,5 @@
 require './lib/cell'
+require 'terminal-table'
 
 class Board
 
@@ -31,4 +32,36 @@ attr_accessor :cells
     Hash[board.flatten.map { |key, value| [key, Cell.new] }]
   end
 
+  def draw_board
+    rows = []
+    board = two_dimension_array
+    board.each {|row| rows << row}
+    table = Terminal::Table.new :title => "Battleships", :headings => (1..@height).to_a, :rows => rows
+    puts table 
+  end
+
+  def cell_content_for_display
+    hash_values = []
+    @cells.values.each do |cell|
+      if cell.hit && cell.cell_content != nil
+        hash_values << "X"
+      elsif cell.hit
+        hash_values << "O"
+      elsif cell.cell_content != nil
+        hash_values << "S"
+      else
+        hash_values << "~"    
+      end
+    end
+    hash_values 
+  end
+
+  def two_dimension_array
+    letters = ("A"..convert_width).to_a
+    display_array = cell_content_for_display.each_slice(@width).map{|row| row}
+    letters.each_with_index{|row_letter, index| display_array[index].insert(0, row_letter)}
+    display_array
+  end
 end
+
+
