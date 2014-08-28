@@ -27,11 +27,11 @@ describe Ship do
 		3.times{ship.hit_counter}
 		expect(ship.floating).to eq false
 	end
-	
+
 	context "testing subclasses" do
-		it 'should be able to have a subclass Detroyer' do
+		it 'should be able to have a subclass Destroyer' do
 			destroyer = Ship::Destroyer.new
-			expect(destroyer.is_a? Ship).to eq true	
+			expect(destroyer.is_a? Ship).to eq true
 		end
 
 		it 'should have a different badass rating' do
