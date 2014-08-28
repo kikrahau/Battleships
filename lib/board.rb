@@ -2,12 +2,12 @@ require './lib/cell'
 
 class Board
 
-attr_reader :cells
+attr_accessor :cells
 
   def initialize(width, height)
-  	@cells = {}
-  	@width = width
+    @width = width
   	@height = height
+    @cells = create_cells
   end
 
   def convert_width
@@ -24,25 +24,11 @@ attr_reader :cells
   	end
   end
 
-
   def create_cells
     letters = ("A"..convert_width).to_a
     numbers = (1..@height).to_a
     board = letters.map { |letter| numbers.map { |number| "#{letter}#{number}" }}
     Hash[board.flatten.map { |key, value| [key, Cell.new] }]
   end
-
-  def cell_count
-    cells.count
-  end
-
-  def empty?
-    cells.count == 0
-  end
-
-  # def receive_ship(ship, cell)
-  #     cells << cell.ship!(ship)
-  #     # cells << cell
-  # end
 
 end
