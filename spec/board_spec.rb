@@ -2,27 +2,35 @@ require 'board'
 
 describe Board do
 
-  let(:board) { Board.new(10,10) }
-  let(:water) { double :water }
+  let(:board) { Board.new(1,1) }
+  let(:cell)  { double :cell }
+  let(:ship)  { double :ship }
 
-	# it "should know that it is a board" do
-	# 	expect(board).to be_a Board
 
-	# end
+	it "should know that it is a board made of hashes" do
+  	expect(board.create_cells).to be_a Hash
+	end
+
+  it 'should know that is is empty upon initialization' do
+    expect(board).to be_empty
+  end
 
 	# it "should have a 100 cells" do
-	# 	expect(board.cells.count).to eq 100
+	# 	expect(board.cell_count).to eq 100
 	# end
- #  xit 'all cells should be initialized containing water' do
- #    expect(board.cells.all_water?).to be true
- #  end
 
-  it 'should create an array of hashes' do 
-  		expect(board.access_grid("d",4)).to eq nil
+  it 'can test that a grid point is valid' do
+  		expect(board.access_grid("a", 1)).to eq nil
   end
 
   it "should raise an error messages if incorrect gridpoint is given" do
   		expect{board.access_grid("d",100)}.to raise_error ArgumentError
-  end	
+  end
+
+  # it 'cell count should change after one boat has been placed' do
+  #   expect(cell).to receive(:ship!)
+  #   board.receive_ship(ship, cell)
+  #   expect(cell_count).to eq 1
+  # end
 
 end

@@ -32,6 +32,7 @@ describe Cell do
       cell.ship!(ship)
       expect(ship).to receive(:hit_counter)
       cell.hit!
+      # should there be another test here to ensure change made
     end
 
     it 'should not allow a missile to land in the same spot twice' do
