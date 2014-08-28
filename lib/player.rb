@@ -1,11 +1,12 @@
-require './lib/ship'
+# require './lib/ship'
 
 class Player
 
 # attr_accessor :fire_missile
 
-	def intitialize(board: :just_a_board)
+	def initialize(board: :just_a_board, fleet: :ship_here)
 		@board = board
+		@fleet = fleet
 	end
 
 	attr_reader :cell
@@ -13,14 +14,29 @@ class Player
 	def fire_missile_at(opponent_board, at_coordinate)
 		opponent_board.cell[at_coordinate].hit!
 	end
-	
-	def place_ship(ship)
-		cell.ship!(ship)
-	end
-
 
 	def ships
-		[]
+		@fleet
 	end
 
+	def has_ships?
+		true
+	end
+
+# horizontal placement
+	def place(ship_type, origin, direction)
+			coordinates = ((origin.chars.last.to_i)..ship_type.badass_rating).map{|coord| origin.chars.first << coord.to_s}
+			coordinates.each do |coordinate|
+			@board.grid[coordinate].place(ship_type)
+		end
+	end
+
+# vertical placement
+	def place(ship_type, origin, direction)
+			coordinates = ((origin.chars.first.ord)..(origin.chars.first.ord + ship_type.badass_rating)).map{|coord| coord.chr << origin.chars.last}
+			coordinates.each do |coordinate|
+			@board.grid[coordinate].place(ship_type)
+		end
+	end
 end
+
