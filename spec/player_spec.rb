@@ -5,6 +5,7 @@ describe Player do
 let(:player)	{ Player.new }
 let(:cell) 		{ double :cell }
 let(:ship) 		{ double :ship }
+let(:board)		{ double :board, cell: cell}
 
 	it 'should be able to fire missiles at cells' do
 		opponent_cell  = double :cell
@@ -17,14 +18,38 @@ let(:ship) 		{ double :ship }
 		player.fire_missile_at(opponent_board, at_coordinate)
 	end
 
-	xit 'should be able to place ships on the War Room Map' do
-		player.place_ship(ship)
-		allow(cell).to receive(:ship!).with(any_args())
-		expect(cell).to
+	# xit 'should be able to place ships on the War Room Map' do				
+	# 	at_coordinate  = 'A1'
+	# 	# player.place_ship(ship)
+	# 	expect(cell).to receive(:[]).with(at_coordinate).and_return(cell)
+	# 	expect(cell).to receive(:ship_type) 
+
+	# 	player.place_ship(board, at_coordinate).ship_type
+	# end
+
+	it 'should have a ship yard containing ships' do
+		fleet  = [:paddleboat, :destroyer, :carrier, :gun_busting_battleship, :canibal_submarine]
+		player = Player.new(fleet: fleet)
+		expect(player.ships).to eq fleet
 	end
 
-	xit 'should have a ship yard containing ships' do
-		expect(player.ships).to eq []
+	it 'can place his ships on the board' do
+		allow_message_expectations_on_nil
+		grid      = double :grid
+		destroyer = double :ship, badass_rating: 4
+		player    = Player.new(fleet: [destroyer], board: board)
+		locations = ["A1", "A2", "A3", "A4"]
+		allow(board).to receive(:grid).and_return(grid)
+		locations.each do |location|
+			allow(grid).to receive(:[]).with(location)
+		end
+
+		locations.each do |location|
+			expect(board.grid[location]).to receive(:place).with(destroyer)
+		end
+
+		player.place(destroyer, "A1", :horizontal)
 	end
+
 
 end
