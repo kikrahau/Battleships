@@ -4,12 +4,12 @@ require 'colored'
 
 class Board
 
-attr_accessor :cells
+  attr_accessor :cells
 
   def initialize(width = 10, height = 10)
     @width = width
   	@height = height
-    @cells = create_cells
+    @grid = create_grid
   end
 
   def check_coordinate(coordinate)
@@ -30,7 +30,7 @@ attr_accessor :cells
     ("A"..convert_width).to_a
   end
 
-  def create_cells
+  def create_grid
     numbers = (1..@height).to_a
     board = letter_coord.map { |letter| numbers.map { |number| "#{letter}#{number}" }}
     Hash[board.flatten.map { |key, value| [key, Cell.new] }]
@@ -45,7 +45,7 @@ attr_accessor :cells
 
   def cell_content_for_display
     hash_values = []
-    @cells.values.each do |cell|
+    @grid.values.each do |cell|
       if cell.hit && cell.cell_content != nil
         hash_values << "X".red
       elsif cell.hit
@@ -64,4 +64,5 @@ attr_accessor :cells
     letter_coord.each_with_index{|row_letter, index| display_array[index].insert(0, row_letter)}
     display_array
   end
+
 end

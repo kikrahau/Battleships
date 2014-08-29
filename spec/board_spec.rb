@@ -7,7 +7,7 @@ describe Board do
 
 
 	it "should know that it is a board made of hashes" do
-  	expect(board.create_cells).to be_a Hash
+  	expect(board.create_grid).to be_a Hash
 	end
 
   it "should be able to convert width to an alphabet array" do
@@ -15,7 +15,7 @@ describe Board do
   end
 
   xit 'should create as many cells as height x width' do
-    expect(board.create_cells).to eq Hash["A1", cell]
+    expect(board.create_grid).to eq Hash["A1", cell]
   end
 
   it 'can test that a grid point is valid' do
@@ -24,11 +24,6 @@ describe Board do
 
   it "should raise an error messages if incorrect gridpoint is given" do
   		expect{board.check_coordinate("D100")}.to raise_error ArgumentError
-  end
-
-
-  it "should be able to draw a board" do
-    expect(board.display_board).to eq nil
   end
 
 end
