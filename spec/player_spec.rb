@@ -18,15 +18,6 @@ let(:board)		{ double :board, grid: grid}
 		player.fire_missile_at(opponent_board, at_coordinate)
 	end
 
-	# xit 'should be able to place ships on the War Room Map' do				
-	# 	at_coordinate  = 'A1'
-	# 	# player.place_ship(ship)
-	# 	expect(grid).to receive(:[]).with(at_coordinate).and_return(grid)
-	# 	expect(grid).to receive(:ship_type) 
-
-	# 	player.place_ship(board, at_coordinate).ship_type
-	# end
-
 	it 'should have a ship yard containing ships' do
 		fleet  = [:paddleboat, :destroyer, :carrier, :gun_busting_battleship, :canibal_submarine]
 		player = Player.new(fleet: fleet)

@@ -1,3 +1,5 @@
+require './lib/player'
+
 class Game
 
 	attr_accessor :players
@@ -49,4 +51,13 @@ class Game
 	def change_turns
 		@players.rotate!
 	end
+
+	def own_board
+		current_player.board
+	end
+
+	def opponents_board
+		other_player.board
+	end
+	
 end

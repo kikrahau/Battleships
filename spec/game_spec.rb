@@ -4,10 +4,10 @@ require 'game'
 describe Game do 
 
 	let(:game) { Game.new }
+
 	let(:player1) { double :player, board: :just_a_board, fleet: :ship_here }
 	let(:player2) { double :player, board: :just_a_board, fleet: :ship_here }
 	let(:ship) { double :ship }
-
 
 	context 'initialization' do 
 
@@ -58,8 +58,6 @@ describe Game do
 
 		it "should allow player 1 to deploy one ship" do 
 			expect(game.player_1_deploy(:ship)).to be true
-		end
-
 	end
 
 	context "Game play - attack mode" do 
@@ -83,6 +81,23 @@ describe Game do
 			expect(game.current_player).to eq player2
 		end
 
+	end
+
+	xit "should initialize the player with a fleet of ships" do
+
+	end
+
+	it "should have access to the current players board" do
+		game.add!(player1)
+		allow(player1).to receive(:board).and_return(:board)
+		expect(game.own_board).to eq :board
+	end
+
+	it 'should have access to other players board' do
+		game.add!(player1)
+		game.add!(player2)
+		allow(player2).to receive(:board).and_return(:board)
+		expect(game.opponents_board).to eq :board
 	end
 
 end
