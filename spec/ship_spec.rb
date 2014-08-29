@@ -33,10 +33,6 @@ describe Ship do
 		expect(ship.floating).to eq false
 	end
 
-	it "should have a shipyard containing a fleet subclasses" do
-		expect(ship.shipyard).to match Array
-	end
-
 	context "testing subclasses" do
 		it 'should be able to have a subclass Destroyer' do
 			destroyer = Ship::Destroyer.new

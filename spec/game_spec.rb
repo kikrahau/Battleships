@@ -100,4 +100,19 @@ describe Game do
 		expect(game.opponents_board).to eq :board
 	end
 end
-end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

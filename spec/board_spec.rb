@@ -28,11 +28,4 @@ describe Board do
   		expect{board.check_coordinate("D100")}.to raise_error ArgumentError
   end
 
-  it 'can show the ships placed on own board' do
-    allow(player).to receive(:place)
-    allow(board).to receive(:grid)
-    allow(grid).to receive(:deploy!)
-    expect(cell_content).to eq ship
-  end
-
 end

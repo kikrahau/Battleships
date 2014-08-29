@@ -1,10 +1,11 @@
 require './lib/player'
-
-require_relative './lib/display_boards'
+require_relative './display_boards'
 
 class Game
 
 	include DisplayBoards
+
+	FLEET = [Ship::PaddleBoat.new,Ship::Destroyer.new,Ship::AircraftCarrier.new,Ship::GunbustingBattleship.new,Ship::CannibalSubmarine.new]
 
 	attr_accessor :players
 
@@ -17,6 +18,9 @@ class Game
 	def add!(player)
 		@players << player
 	end
+
+# we should add the players automatically to the game once names are collected
+# we should change the "player name" to name that was given on input
 
 	def get_name_player_1
 		p "Please enter name of Player 1:"
@@ -74,3 +78,16 @@ class Game
 	end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,9 +20,6 @@ DEFAULT_BADASS_RATING = 3
 		self
 	end
 
-	def shipyard
-		[PaddleBoat.new,Destroyer.new,AircraftCarrier.new,GunbustingBattleship.new,CannibalSubmarine.new]
-	end
 
 	class PaddleBoat < Ship
 		def initialize

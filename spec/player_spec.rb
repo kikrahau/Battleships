@@ -18,17 +18,11 @@ let(:board)		{ double :board, grid: grid}
 		player.fire_missile_at(opponent_board, at_coordinate)
 	end
 
-	it 'should have a ship yard containing ships' do
-		fleet  = [:paddleboat, :destroyer, :carrier, :gun_busting_battleship, :canibal_submarine]
-		player = Player.new(fleet: fleet)
-		expect(player.ships).to eq fleet
-	end
-
 	it 'can place ships on the board horizontally' do
 		allow_message_expectations_on_nil
 		grid      = double :grid
 		destroyer = double :ship, badass_rating: 4
-		player    = Player.new(fleet: [destroyer], board: board)
+		player    = Player.new(board: board)
 		locations = ["A1", "A2", "A3", "A4"]
 		allow(board).to receive(:grid).and_return(grid)
 		locations.each do |location|
@@ -46,7 +40,7 @@ let(:board)		{ double :board, grid: grid}
 		allow_message_expectations_on_nil
 		grid      = double :grid
 		destroyer = double :ship, badass_rating: 4
-		player    = Player.new(fleet: [destroyer], board: board)
+		player    = Player.new(board: board)
 		locations = ["A1", "B1", "C1", "D1"]
 		allow(board).to receive(:grid).and_return(grid)
 		locations.each do |location|
