@@ -11,11 +11,11 @@ describe Cell do
 	end
 
 	it "should be able to change to contain a ship" do
-		expect(cell.ship!(ship)).to be ship
+		expect(cell.deploy!(ship)).to be ship
 	end
 
   it "should know if it contains ship" do
-    cell.ship!(ship)
+    cell.deploy!(ship)
     expect(cell.has_ship?).to be true
   end
 
@@ -29,7 +29,7 @@ describe Cell do
 	end
 
   it 'should send a hit to ship, if occupied by a ship' do
-    cell.ship!(ship)
+    cell.deploy!(ship)
     expect(ship).to receive(:hit_counter)
     cell.hit!
     # should there be another test here to ensure change made

@@ -3,17 +3,17 @@ require 'player'
 describe Player do
 
 let(:player)	{ Player.new }
-let(:cell) 		{ double :cell }
+let(:grid) 		{ double :grid }
 let(:ship) 		{ double :ship }
-let(:board)		{ double :board, cell: cell}
+let(:board)		{ double :board, grid: grid}
 
-	it 'should be able to fire missiles at cells' do
-		opponent_cell  = double :cell
-		opponent_board = double :board, cell: opponent_cell
+	it 'should be able to fire missiles at grids' do
+		opponent_grid  = double :grid
+		opponent_board = double :board, grid: opponent_grid
 		at_coordinate  = 'A1'
 
-		expect(opponent_cell).to receive(:[]).with(at_coordinate).and_return(cell)
-		expect(cell).to receive(:hit!)
+		expect(opponent_grid).to receive(:[]).with(at_coordinate).and_return(grid)
+		expect(grid).to receive(:hit!)
 
 		player.fire_missile_at(opponent_board, at_coordinate)
 	end
@@ -21,8 +21,8 @@ let(:board)		{ double :board, cell: cell}
 	# xit 'should be able to place ships on the War Room Map' do				
 	# 	at_coordinate  = 'A1'
 	# 	# player.place_ship(ship)
-	# 	expect(cell).to receive(:[]).with(at_coordinate).and_return(cell)
-	# 	expect(cell).to receive(:ship_type) 
+	# 	expect(grid).to receive(:[]).with(at_coordinate).and_return(grid)
+	# 	expect(grid).to receive(:ship_type) 
 
 	# 	player.place_ship(board, at_coordinate).ship_type
 	# end
@@ -45,7 +45,7 @@ let(:board)		{ double :board, cell: cell}
 		end
 
 		locations.each do |location|
-			allow(board.grid[location]).to receive(:place).with(destroyer)
+			allow(board.grid[location]).to receive(:deploy!).with(destroyer)
 		end
 
 		player.place(destroyer, "A1", :horizontal)
@@ -63,7 +63,7 @@ let(:board)		{ double :board, cell: cell}
 		end
 
 		locations.each do |location|
-			allow(board.grid[location]).to receive(:place).with(destroyer)
+			allow(board.grid[location]).to receive(:deploy!).with(destroyer)
 	end
 
 		player.place(destroyer, "A1", :vertical)

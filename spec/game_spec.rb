@@ -17,18 +17,17 @@ describe Game do
 	end
 
 
-	it 'should be able to know, when to start' do
+	xit 'should be able to know, when to start' do
 		expect(game).to be_starting
 	end
 
-	it "should be able to start, when there are two players" do
+	xit "should be able to start, when there are two players" do
 		expect(game.starting?).to be true
 	end
 
 	it 'should know who is the current player' do
 		game.add!(player1)
 		game.add!(player2)
-
 		expect(game.current_player).to eq game.players.first
 	end
 
@@ -43,5 +42,9 @@ describe Game do
 		player2 = game.other_player
 		game.change_turns
 		expect(game.current_player).to eq player2
+	end
+
+	it "should initialize the player with a fleet of ships" do
+		
 	end
 end

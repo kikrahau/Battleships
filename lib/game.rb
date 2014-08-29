@@ -6,13 +6,12 @@ class Game
 		@players = []
 	end
 
-
 	def add!(player)
 		@players << player
 	end
 
 	def starting?
-		@players.length == 0
+		@players.length == 2
 	end
 
 	def current_player
