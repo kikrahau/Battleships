@@ -4,8 +4,9 @@ require 'game'
 describe Game do 
 
 	let(:game) { Game.new }
-	let(:player1) { double :player}
-	let(:player2) { double :player }
+	let(:player1) { double :player, board: :just_a_board, fleet: :ship_here }
+	let(:player2) { double :player, board: :just_a_board, fleet: :ship_here }
+	let(:ship) { double :ship }
 
 
 	context 'initialization' do 
@@ -53,25 +54,35 @@ describe Game do
 
 	end
 
+	context "Ship placement" do 
 
+		it "should allow player 1 to deploy one ship" do 
+			expect(game.player_1_deploy(:ship)).to be true
+		end
 
-	it 'should know who is the current player' do
-		game.add!(player1)
-		game.add!(player2)
-
-		expect(game.current_player).to eq game.players.first
 	end
 
-	it 'should know who is the other player' do
-		game.add!(player1)
-		game.add!(player2)
-		expect(game.other_player).to eq game.players.last
+	context "Game play - attack mode" do 
+
+		it 'should know who is the current player' do
+			game.add!(player1)
+			game.add!(player2)
+			expect(game.current_player).to eq game.players.first
+		end
+
+		it 'should know who is the other player' do
+			game.add!(player1)
+			game.add!(player2)
+			expect(game.other_player).to eq game.players.last
+		end
+
+		it 'should change turns' do
+			player1 = game.current_player
+			player2 = game.other_player
+			game.change_turns
+			expect(game.current_player).to eq player2
+		end
+
 	end
 
-	it 'should change turns' do
-		player1 = game.current_player
-		player2 = game.other_player
-		game.change_turns
-		expect(game.current_player).to eq player2
-	end
 end

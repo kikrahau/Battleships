@@ -30,6 +30,10 @@ class Game
 		@player_2_name
 	end
 
+	def player_1_deploy(ship)
+		deploy!(ship)
+	end
+
 	def starting?
 		@players.count == 2
 	end
