@@ -8,7 +8,6 @@ class Game
 		@player_2_name = ""
 	end
 
-
 	def add!(player)
 		@players << player
 	end
@@ -32,7 +31,7 @@ class Game
 	end
 
 	def starting?
-		@players.length == 0
+		@players.length == 2
 	end
 
 	def current_player

@@ -4,17 +4,17 @@ class Cell
 
 attr_accessor :cell_content, :hit
 
-  def initialize
-  	@cell_content = nil
-    @hit = false
-  end
+	def initialize
+		@cell_content = nil
+		@hit = false
+	end
 
-  def cell_content?
-  	@cell_content
-  end
+	def cell_content?
+		@cell_content
+	end
 
-	def ship!(ship)
-    @cell_content = ship
+	def deploy!(ship)
+		@cell_content = ship
 	end
 
 	def has_ship?
@@ -27,10 +27,10 @@ attr_accessor :cell_content, :hit
 
 	def hit!
 		raise "HAHAHAAAAA YOU FOOLS!!! YOU ALREADY HIT THERE!!!" if @hit == true
-		if has_ship?
-			@cell_content.hit_counter
-		end
+			if has_ship?
+				@cell_content.hit_counter
+			end
 		@hit = true
 	end
-	
+
 end

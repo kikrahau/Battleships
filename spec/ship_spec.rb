@@ -2,8 +2,13 @@ require './lib/ship'
 
 describe Ship do
 
-	let(:ship) 		{ Ship.new }
-	let(:destroyer) { Ship::Destroyer.new }
+	let(:ship) 			{ Ship.new }
+	let(:destroyer) 	{ Ship::Destroyer.new }
+	let(:paddleboat) 	{ Ship::PaddleBoat.new }
+	let(:carrier) 		{ Ship::AircraftCarrier.new }
+	let(:battleship)	{ Ship::GunbustingBattleship.new }
+	let(:submarine) 	{ Ship::CannibalSubmarine.new }
+
 	# let(:cell) 	{ double :cell }
 
 	it "should have floating status upon initialization" do
@@ -24,8 +29,12 @@ describe Ship do
 	end
 
 	it 'should tally up the missile hits for future retribution!!!' do
-		3.times{ship.hit_counter}
+		Ship::DEFAULT_BADASS_RATING.times{ship.hit_counter}
 		expect(ship.floating).to eq false
+	end
+
+	it "should have a shipyard containing a fleet subclasses" do
+		expect(ship.shipyard).to match Array
 	end
 
 	context "testing subclasses" do
