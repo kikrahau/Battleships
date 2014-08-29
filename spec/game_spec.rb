@@ -99,5 +99,5 @@ describe Game do
 		allow(player2).to receive(:board).and_return(:board)
 		expect(game.opponents_board).to eq :board
 	end
-
+end
 end

@@ -1,6 +1,10 @@
 require './lib/player'
 
+require_relative './lib/display_boards'
+
 class Game
+
+	include DisplayBoards
 
 	attr_accessor :players
 
@@ -15,7 +19,7 @@ class Game
 	end
 
 	def get_name_player_1
-		puts "Please enter name of Player 1:"
+		p "Please enter name of Player 1:"
 		@player_1_name = gets.chomp
 		if @player_1_name == ""
 			@player_1_name = "Player 1"
@@ -53,11 +57,12 @@ class Game
 	end
 
 	def own_board
-		current_player.board
+		current_player.board.cell_content_for_current_player
+		other_player.board.cell_content_for_opponent
 	end
 
 	def opponents_board
-		other_player.board
-	end
+		other_player.board.cell_content_for_current_player
+		current_player.board.cell_content_for_opponent
 	
 end

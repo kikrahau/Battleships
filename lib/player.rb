@@ -1,8 +1,4 @@
-# require './lib/ship'
-
 class Player
-
-# attr_accessor :fire_missile
 
 	attr_accessor :board
 
@@ -19,11 +15,6 @@ class Player
 		@fleet
 	end
 
-	# def has_ships?
-	# 	true
-	# end
-
-# horizontal placement
 	def place(ship_type, at_coordinate, direction) #ship_type needs to be ship class, at_coordinate needs to be string like "A1", direction needs to be "horizontal" or "vertical"
 		if direction = "horizontal"
 			coordinates = ((at_coordinate.chars.last.to_i)..ship_type.badass_rating).map{|coord| at_coordinate.chars.first << coord.to_s}
