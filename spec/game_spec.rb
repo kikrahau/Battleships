@@ -4,6 +4,7 @@ require 'game'
 describe Game do 
 
 	let(:game) { Game.new }
+	let(:board) { double :board}
 	let(:player1) { double :player }
 	let(:player2) { double :player }
 
@@ -44,7 +45,21 @@ describe Game do
 		expect(game.current_player).to eq player2
 	end
 
-	it "should initialize the player with a fleet of ships" do
-		
+	xit "should initialize the player with a fleet of ships" do
+
 	end
+
+	it "should have access to the current players board" do
+		game.add!(player1)
+		allow(player1).to receive(:board).and_return(:board)
+		expect(game.own_board).to eq :board
+	end
+
+	it 'should have access to other players board' do
+		game.add!(player1)
+		game.add!(player2)
+		allow(player2).to receive(:board).and_return(:board)
+		expect(game.opponents_board).to eq :board
+	end
+
 end

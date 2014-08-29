@@ -4,13 +4,15 @@ class Player
 
 # attr_accessor :fire_missile
 
-	def initialize(board: :just_a_board, fleet: :ship_here)
+	attr_accessor :board
+
+	def initialize(board: :board, fleet: :ship_here)
 		@board = board
 		@fleet = fleet #should be filled at initialization of the Player-class by the Game
 	end
 
-	def fire_missile_at(opponent_board, at_coordinate)
-		opponent_board.grid[at_coordinate].hit!
+	def fire_missile_at(opponents_board, at_coordinate) # opponent _board needs to be a board class, at_coordinate needs to be string like "A1"
+		opponents_board.grid[at_coordinate].hit!
 	end
 
 	def ships
