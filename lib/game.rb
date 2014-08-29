@@ -15,28 +15,35 @@ class Game
 	end
 
 	def get_name_player_1
-		puts "Please enter name of Player 1:"
+		p "Please enter name of Player 1:"
 		@player_1_name = gets.chomp
 		if @player_1_name == ""
 			@player_1_name = "Player 1"
-		end 
+		end
 		@player_1_name
 	end
 
 	def get_name_player_2
-		puts "Please enter name of Player 2:"
+		p "Please enter name of Player 2:"
 		@player_2_name = gets.chomp
 		if @player_2_name == ""
 			@player_2_name = "Player 2"
-		end 
+		end
 		@player_2_name
 	end
 
-	def player_1_deploy(ship)
-		deploy!(ship)
+	def place_ship(ship)
+		p "Please deploy your #{ship}"
+		p "what coordinate would you like to use?"
+
+		at_coordinate = gets.chomp
+		p "what direction would you like to place said ship?"
+		direction = gets.chomp
+		@player.place(ship, at_coordinate, direction)
 	end
 
 	def starting?
+
 		@players.count == 2
 	end
 
@@ -59,5 +66,5 @@ class Game
 	def opponents_board
 		other_player.board
 	end
-	
+
 end
