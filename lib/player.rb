@@ -18,7 +18,7 @@ class Player
 	def place(ship_type, at_coordinate, direction) #ship_type needs to be ship class, at_coordinate needs to be string like "A1", direction needs to be "horizontal" or "vertical"
 		if direction = "horizontal"
 			coordinates = ((at_coordinate.chars.last.to_i)..ship_type.badass_rating).map{|coord| at_coordinate.chars.first << coord.to_s}
-		elsif "vertical" 	
+		elsif "vertical"
 			coordinates = ((at_coordinate.chars.first.ord)..(at_coordinate.chars.first.ord + ship_type.badass_rating)).map{|coord| coord.chr << origin.chars.last}
 		end
 		coordinates.each do |coordinate|
