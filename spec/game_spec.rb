@@ -14,17 +14,20 @@ describe Game do
 			expect(game.players).to eq []
 		end
 
-<<<<<<< HEAD
 		it 'should be able to add players' do
 			game.add!(player1)
 			expect(game.players).to eq [player1]
 		end
 
 		it 'should be able to know, when to start' do
+			game.add!(player1)
+			game.add!(player2)
 			expect(game).to be_starting
 		end
 
 		it "should be able to start, when there are two players" do
+			game.add!(player1)
+			game.add!(player2)
 			expect(game.starting?).to be true
 		end
 
@@ -48,14 +51,6 @@ describe Game do
 			expect(game.get_name_player_2).to eq("Player 2") 
 		end 
 
-=======
-	xit 'should be able to know, when to start' do
-		expect(game).to be_starting
-	end
-
-	xit "should be able to start, when there are two players" do
-		expect(game.starting?).to be true
->>>>>>> 88ea9cf9c688663c7b8948b6ac0b377bea0dff17
 	end
 
 
@@ -63,6 +58,7 @@ describe Game do
 	it 'should know who is the current player' do
 		game.add!(player1)
 		game.add!(player2)
+
 		expect(game.current_player).to eq game.players.first
 	end
 
@@ -77,9 +73,5 @@ describe Game do
 		player2 = game.other_player
 		game.change_turns
 		expect(game.current_player).to eq player2
-	end
-
-	it "should initialize the player with a fleet of ships" do
-		
 	end
 end

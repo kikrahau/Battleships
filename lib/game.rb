@@ -31,7 +31,7 @@ class Game
 	end
 
 	def starting?
-		@players.length == 2
+		@players.count == 2
 	end
 
 	def current_player
