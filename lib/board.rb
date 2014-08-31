@@ -25,15 +25,22 @@ class Board
   def convert_width
     (@width + 64).chr
   end
+  # refering to ascii values eg 64 = A
 
   def letter_coord
     ("A"..convert_width).to_a
   end
 
+  # to_a creates an Array
+  #(1..10).to_a => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
   def create_grid
     numbers = (1..@height).to_a
     board = letter_coord.map { |letter| numbers.map { |number| "#{letter}#{number}" }}
-    Hash[board.flatten.map { |key, value| [key, Cell.new] }]
+    Hash[board.flatten.map { |key| [key, Cell.new] }]
   end
+  # flatten = makes arrays within arrays 'one'
+  # its a loop within a loop!
+  # key and cell here are now LINKED (get your terms right!)
 
 end

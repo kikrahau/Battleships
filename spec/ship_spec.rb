@@ -8,6 +8,7 @@ describe Ship do
 	let(:carrier) 		{ Ship::AircraftCarrier.new }
 	let(:battleship)	{ Ship::GunbustingBattleship.new }
 	let(:submarine) 	{ Ship::CannibalSubmarine.new }
+	# Ship::PaddleBoat - this enables you to access subclasses from nearly anywhere, no matter where they are 'technically' stored be it in another rb file etc
 
 	# let(:cell) 	{ double :cell }
 
@@ -34,8 +35,8 @@ describe Ship do
 	end
 
 	context "testing subclasses" do
+
 		it 'should be able to have a subclass Destroyer' do
-			destroyer = Ship::Destroyer.new
 			expect(destroyer.is_a? Ship).to eq true
 		end
 

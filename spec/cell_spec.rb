@@ -1,6 +1,9 @@
 require "cell"
 
 describe Cell do
+# 'Cell.new' etc are not doubles, they
+
+# Global vs Local: global effect here, means a precondition that applies to all tests within this test spec, Local means specific tests within 'the overall test spec'
 
 	let(:cell)   { Cell.new     }
   let(:ship)   { double :ship }
@@ -9,6 +12,8 @@ describe Cell do
 	it "should initially have content of water" do
 		expect(cell.cell_content?).to be nil
 	end
+
+  # return values => true/ false/nil
 
 	it "should be able to change to contain a ship" do
 		expect(cell.deploy!(ship)).to be ship
@@ -39,6 +44,8 @@ describe Cell do
     cell.hit!
     expect{(cell.hit!)}.to raise_error
   end
+
+  # curly brackets are for rspec, so it knows not to boot us out of the programme despite raising an error aka that it is intentional!
 
 end
 

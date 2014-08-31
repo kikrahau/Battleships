@@ -12,6 +12,9 @@ describe Board do
   	expect(board.create_grid).to be_a Hash
 	end
 
+  # be_a checks the return of the test's class, this is rspec spec. lang
+  #(1..10).to_a.class => Array
+
   it "should be able to convert width to an alphabet array" do
     expect(board.convert_width).to eq "A"
   end

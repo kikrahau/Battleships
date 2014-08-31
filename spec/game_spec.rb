@@ -7,6 +7,7 @@ describe Game do
 
 	let(:player1) { double :player, board: :just_a_board, fleet: :ship_here }
 	let(:player2) { double :player, board: :just_a_board, fleet: :ship_here }
+	# mocking the return values here! rap spike!
 	let(:ship) { double :ship }
 
 	context 'initialization' do
@@ -33,12 +34,12 @@ describe Game do
 		end
 
 		it "should ask player 1 for their name" do
-			allow(game).to receive(:gets).and_return("Nick")
+			expect(game).to receive(:gets).and_return("Nick")
 			expect(game.get_name_player_1).to eq "Nick"
 		end
 
-		it "should raise error if player 1 doesn't enter a name" do
-			allow(game).to receive(:gets).and_return("\n")
+		it "should set name to player 1 if no name is entered" do
+			expect(game).to receive(:gets).and_return("\n")
 			expect(game.get_name_player_1).to eq("Player 1")
 		end
 
@@ -47,7 +48,7 @@ describe Game do
 			expect(game.get_name_player_2).to eq "Merve"
 		end
 
-		it "should raise error if player 2 doesn't enter a name" do
+		it "should set name to player 2 if no name is entered" do
 			allow(game).to receive(:gets).and_return("\n")
 			expect(game.get_name_player_2).to eq("Player 2")
 		end

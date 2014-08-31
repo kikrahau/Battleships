@@ -25,6 +25,8 @@ class Game
 	def get_name_player_1
 		p "Please enter name of Player 1:"
 		@player_1_name = gets.chomp
+		# chomp = gets rid of the new line aka 'hello\n' is now 'hello'
+		# '' vs "" = single quotes will put exactly what is written, while "" will EVALUATE instructions that are within the string
 		if @player_1_name == ""
 			@player_1_name = "Player 1"
 		end
@@ -51,7 +53,6 @@ class Game
 	end
 
 	def starting?
-
 		@players.count == 2
 	end
 
