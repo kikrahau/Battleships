@@ -1,6 +1,5 @@
 require 'game'
 
-
 describe Game do
 
 	let(:game) { Game.new }
@@ -59,10 +58,14 @@ describe Game do
 
 		it "should ask the player to deploy their first ship" do
 			game.add!(player1)
-			allow(game).to receive(:gets).and_return("A1", "horizontal")
-			expect(game.place_ship(ship, player1)).to eq ["A1","A2","A3","A4"]
+			ship_coordinate = "A1"
+			direction = "horizontal"
+			allow(player2).to receive(:board)
+			expect(game.place_ship(ship, ship_coordinate, direction)).to eq ["A1","A2","A3","A4"]
 		end
+
 	end
+
 	context "Game play - attack mode" do
 
 		it 'should know who is the current player' do
@@ -84,21 +87,36 @@ describe Game do
 			expect(game.current_player).to eq player2
 		end
 
+		it 'should ask current player where they would like to shoot' do 
+			player1 = game.current_player
+			player2 = game.other_player
+			game.add!(player1)
+			game.add!(player2)
+			allow(player2).to receive(:board)
+			allow(player2).to receive(:fire_missile_at).and_return(true)
+			expect(game.player_fire_missile("A1")).to eq true
+		end
+
 	end
 
-	it "should have access to the current players board" do
-		game.add!(player1)
-		game.add!(player2)
-		# allow(player1).to receive(:board).and_return(:board)
-		expect(game.own_board(player1)).to include("~")
+	context 'player board view' do 
+
+		it "should have access to the current players board" do
+			game.add!(player1)
+			game.add!(player2)
+			# allow(player1).to receive(:board).and_return(:board)
+			expect(game.own_board(player1)).to include("~")
+		end
+
+		it 'should have access to other players board' do
+			game.add!(player1)
+			game.add!(player2)
+			# allow(player2).to receive(:board).and_return(:board)
+			expect(game.opponents_board(player2)).to include("~")
+		end			
+
 	end
 
-	it 'should have access to other players board' do
-		game.add!(player1)
-		game.add!(player2)
-		# allow(player2).to receive(:board).and_return(:board)
-		expect(game.opponents_board(player2)).to include("~")
-	end
 end
 
 

@@ -35,6 +35,7 @@ attr_accessor :cell_content, :hit
 				@cell_content.hit_counter
 			end
 		@hit = true
+		# self
 	end
 
 end
