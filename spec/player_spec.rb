@@ -21,7 +21,6 @@ let(:player_with_board2)	{ Player.new(board2) }
 			destroyer = double :ship, badass_rating: 2
 			allow(cell2).to receive(:deploy!)
 			player_with_board2.place(destroyer, "A1", "horizontal")
-			# expect(player.coordinates_for("a1", 4, "horizontal")).to eq ["A1", "A2", "A3", "A4"]
 	end
 
 	it "can return all coordinates for a coordiante horizontally" do 
