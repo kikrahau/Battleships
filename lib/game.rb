@@ -6,12 +6,11 @@ class Game
 
 	include DisplayBoards
 
-	FLEET = [Ship::PaddleBoat.new,Ship::Destroyer.new,Ship::AircraftCarrier.new,Ship::GunbustingBattleship.new,Ship::CannibalSubmarine.new]
-
-	attr_accessor :players
+	attr_accessor :players, :fleet
 
 	def initialize
 		@players = []
+		@fleet = [Ship::PaddleBoat.new,Ship::Destroyer.new,Ship::AircraftCarrier.new,Ship::GunbustingBattleship.new,Ship::CannibalSubmarine.new]
 		@player_1_name = ""
 		@player_2_name = ""
 	end
@@ -70,21 +69,19 @@ class Game
 	end
 
 	def opponents_board(other_player)
-		# cell_content_for_current_player(current_player)
 		cell_content_for_opponent(other_player)
 	end
 
+	def update_fleet
+		@fleet.reject! { |ship| ship.floating ==  false }
+	end
+
+	def fleet_count
+		@fleet.count
+	end
+
+	def game_over
+		fleet.count == 0
+	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
 

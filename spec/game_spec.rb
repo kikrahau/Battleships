@@ -88,13 +88,15 @@ describe Game do
 		end
 
 		it 'should ask current player where they would like to shoot' do 
-			player1 = game.current_player
-			player2 = game.other_player
 			game.add!(player1)
 			game.add!(player2)
-			allow(player2).to receive(:board)
-			allow(player2).to receive(:fire_missile_at).and_return(true)
-			expect(game.player_fire_missile("A1")).to eq true
+			game.player_fire_missile("A1")
+			expect(player2.board.grid["A1"].has_hit?).to be true
+		end
+
+		it "can loose ships out of his fleet when they are sunk" do
+			game.fleet[0].sink!
+			expect(game.update_fleet.count).to eq 4
 		end
 
 	end
@@ -118,39 +120,3 @@ describe Game do
 	end
 
 end
-
-
-# it 'has a display for the player' do
-# 	# you hav e a player
-# 	# place a ship on his board
-# 	expect(cell_content_for_current_player(player)).to eq [
-# 		["X", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "O", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 		["S", "S", "~", "~", "~", "~", "~", "~", "~", "~"]
-# 	]
-# end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
