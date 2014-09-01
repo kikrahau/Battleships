@@ -1,5 +1,6 @@
 require './lib/player'
-require_relative './display_boards'
+require './lib/display_boards'
+require './lib/board'
 
 class Game
 
@@ -40,14 +41,14 @@ class Game
 		@player_2_name
 	end
 
-	def place_ship(ship)
+	def place_ship(ship, player)
 		p "Please deploy your #{ship}"
 		p "what coordinate would you like to use?"
 
 		at_coordinate = gets.chomp
 		p "what direction would you like to place said ship?"
 		direction = gets.chomp
-		@player.place(ship, at_coordinate, direction)
+		player.place(ship, at_coordinate, direction)
 	end
 
 	def starting?
@@ -67,14 +68,13 @@ class Game
 		@players.rotate!
 	end
 
-	def own_board
-		current_player.board.cell_content_for_current_player
-		other_player.board.cell_content_for_opponent
+	def own_board(current_player)
+		cell_content_for_current_player(current_player)
 	end
 
-	def opponents_board
-		other_player.board.cell_content_for_current_player
-		current_player.board.cell_content_for_opponent
+	def opponents_board(other_player)
+		# cell_content_for_current_player(current_player)
+		cell_content_for_opponent(other_player)
 	end
 
 end
