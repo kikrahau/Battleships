@@ -10,12 +10,15 @@ class Rules < Game
 			p "Which direction? Type H for horizontal or V for vertical"
 			direction = gets.chomp
 			if direction == "V"
-				direction = "Horizontal"
+				direction = "vertical"
 			elsif direction == "H"
-				direction = "Vertical"
+				direction = "horizontal"
 			end
 			place_ship(ship, ship_coordinate, direction)
 		end
 	end
 
+	def placing_turn
+		2.times { placement_phase;change_turns}
+	end
 end

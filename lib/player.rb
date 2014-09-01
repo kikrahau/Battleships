@@ -18,9 +18,9 @@ class Player
 		end
   end
 
-	def coordinates_for(starting_point, size, orientation)
+	def coordinates_for(starting_point, badass_rating, orientation)
 		x,y, coords = starting_point.split("") << []
-		orientation == "horizontal" ? size.times{ |i|coords << "#{x.upcase}#{i + 1}"} : size.times{coords << "#{x.upcase}#{y}"; x = x.next}
+		orientation == "horizontal" ? badass_rating.times{ |i|coords << "#{x.upcase}#{y.to_i + i}"} : badass_rating.times{coords << "#{x.upcase}#{y}"; x = x.next}
 		coords
 	end
 

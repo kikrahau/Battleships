@@ -10,14 +10,16 @@ describe Rules do
 
 	context "ship placement phase" do
 
-		it "can prompt player 1 and then player 2 to place ships" do 
+		it "can prompt player to place ships" do 
 			rules.add!(player)
-			allow(rules).to receive(:gets).and_return("A1", "H","B1", "H","C1", "H", "A9", "V","D9", "V")
+			allow(rules).to receive(:gets).and_return("A1","V","A2","V","A3","V","A4","V","A5","V")
 			rules.placement_phase
 			expect(rules.own_board(player).select {|ship| ship == "S"}.count).to eq(17)
-
 		end	
 
+		it "can let players place their ships, one at a time" do
+
+		end
 
 	end
 
