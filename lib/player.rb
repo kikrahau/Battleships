@@ -3,7 +3,7 @@ class Player
 	attr_accessor :board
 	# attr_accessor :fleet
 
-	def initialize(board: :board)
+	def initialize(board)
 		@board = board
 		# @fleet = fleet #should be filled at initialization of the Player-class by the Game
 	end

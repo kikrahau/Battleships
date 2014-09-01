@@ -13,6 +13,10 @@ attr_accessor :cell_content, :hit
 		@cell_content
 	end
 
+	def cell_content=(content)
+		@cell_content = content
+	end
+
 	def deploy!(ship)
 		@cell_content = ship
 	end
