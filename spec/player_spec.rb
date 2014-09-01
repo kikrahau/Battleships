@@ -4,15 +4,14 @@ describe Player do
 
 let(:player)	{ Player.new }
 let(:ship) 		{ double :ship }
-let(:board)		{ double :board}
+let(:cell)		{double :cell}
+let(:board)		{ double :board, grid: {"A1" => cell}}
 let(:player_with_board)	{ Player.new(board) }
 
 
-	xit 'can be able to fire missiles at grids' do
-		at_coordinate  = 'A1'
-		board.stub_chain(:grid, :hit!).and_return(:true)
-		expect(board.grid.hit!).to eq(:true)
-		player.fire_missile_at(at_coordinate)
+	it 'can be able to fire missiles at grids' do
+		expect(cell).to receive(:hit!)
+		player_with_board.fire_missile_at("A1")
 	end
 
 	xit 'can place ships on the board horizontally' do
