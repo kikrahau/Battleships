@@ -16,8 +16,8 @@ describe Board do
     expect(board.convert_width).to eq "A"
   end
 
-  xit 'should create as many cells as height x width' do
-    expect(board.create_grid).to eq Hash["A1", cell]
+  it 'should create as many cells as height x width' do
+    expect(board.create_grid).to match Hash
   end
 
   it 'can test that a grid point is valid' do

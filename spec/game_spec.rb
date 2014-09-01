@@ -60,14 +60,9 @@ describe Game do
 		it "should ask the player to deploy their first ship" do
 			game.add!(player1)
 			allow(game).to receive(:gets).and_return("A1", "horizontal")
-
-			game.place_ship(ship, player1)
-
-			expect(player1).to receive(:place).with(ship, "A1", "horizontal")
+			expect(game.place_ship(ship, player1)).to eq ["A1","A2","A3","A4"]
 		end
-
 	end
-
 	context "Game play - attack mode" do
 
 		it 'should know who is the current player' do

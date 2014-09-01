@@ -12,15 +12,15 @@ class Player
 		opponents_board.grid[at_coordinate].hit!
 	end
 
-	def place(ship_type, at_coordinate, direction) #ship_type needs to be ship class, at_coordinate needs to be string like "A1", direction needs to be "horizontal" or "vertical"
-  	coordinates_for(at_coordinate, ship_type.badass_rating, horizontally: true).each do |x|
+	def place(ship_type, at_coordinate, direction = "horizontal") #ship_type needs to be ship class, at_coordinate needs to be string like "A1", direction needs to be "horizontal" or "vertical"
+  	coordinates_for(at_coordinate, ship_type.badass_rating, direction).each do |x|
   		board.grid[x].deploy!(ship_type)
 		end
   end
 
-	def coordinates_for(starting_point, size, horizontally: true)
+	def coordinates_for(starting_point, size, orientation)
 		x,y, coords = starting_point.split("") << []
-		horizontally ? size.times{ |i|coords << "#{x.upcase}#{i + 1}"} : size.times{coords << "#{x.upcase}#{y}"; x = x.next}
+		orientation == "horizontal" ? size.times{ |i|coords << "#{x.upcase}#{i + 1}"} : size.times{coords << "#{x.upcase}#{y}"; x = x.next}
 		coords
 	end
 

@@ -44,7 +44,6 @@ class Game
 	def place_ship(ship, player)
 		p "Please deploy your #{ship}"
 		p "what coordinate would you like to use?"
-
 		at_coordinate = gets.chomp
 		p "what direction would you like to place said ship?"
 		direction = gets.chomp
