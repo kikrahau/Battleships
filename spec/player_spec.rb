@@ -6,6 +6,8 @@ let(:player)	{ Player.new }
 let(:grid) 		{ double :grid }
 let(:ship) 		{ double :ship }
 let(:board)		{ double :board, grid: grid}
+let(:player_with_board)	{ Player.new(board) }
+
 
 	it 'should be able to fire missiles at grids' do
 		opponent_grid  = double :grid
@@ -19,39 +21,18 @@ let(:board)		{ double :board, grid: grid}
 	end
 
 	it 'can place ships on the board horizontally' do
-		allow_message_expectations_on_nil
-		grid      = double :grid
-		destroyer = double :ship, badass_rating: 4
-		player    = Player.new(board: board)
-		locations = ["A1", "A2", "A3", "A4"]
-		allow(board).to receive(:grid).and_return(grid)
-		locations.each do |location|
-			allow(grid).to receive(:[])
-		end
-
-		locations.each do |location|
-			allow(board.grid[location]).to receive(:deploy!).with(destroyer)
-		end
-
-		player.place(destroyer, "A1", :horizontal)
+			destroyer = double :ship, badass_rating: 2
+			expect(board).to receive(:grid).with(any_args())
+			player_with_board.place(destroyer, "a1", "horizontally")
 	end
 
-	it 'can place ships on the board vertically' do
-		allow_message_expectations_on_nil
-		grid      = double :grid
-		destroyer = double :ship, badass_rating: 4
-		player    = Player.new(board: board)
-		locations = ["A1", "B1", "C1", "D1"]
-		allow(board).to receive(:grid).and_return(grid)
-		locations.each do |location|
-			allow(grid).to receive(:[])
-		end
-
-		locations.each do |location|
-			allow(board.grid[location]).to receive(:deploy!).with(destroyer)
+	it "can get return all coordinates for a coordiante horizontally" do 
+		expect(player.coordinates_for("a1", 4)).to eq ["A1", "A2", "A3", "A4"]
 	end
 
-		player.place(destroyer, "A1", :vertical)
+	it "can get return all coordinates for a coordiante vertically" do 
+		expect(player.coordinates_for("a1", 4, horizontally: false)).to eq ["A1", "B1", "C1", "D1"]
 	end
+
 end
 

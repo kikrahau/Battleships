@@ -3,7 +3,7 @@ class Player
 	attr_accessor :board
 	# attr_accessor :fleet
 
-	def initialize(board: :board)
+	def initialize(board = nil)
 		@board = board
 		# @fleet = fleet #should be filled at initialization of the Player-class by the Game
 	end
@@ -13,13 +13,15 @@ class Player
 	end
 
 	def place(ship_type, at_coordinate, direction) #ship_type needs to be ship class, at_coordinate needs to be string like "A1", direction needs to be "horizontal" or "vertical"
-		if direction == "horizontal"
-			coordinates = ((at_coordinate.chars.last.to_i)..ship_type.badass_rating).map{|coord| at_coordinate.chars.first << coord.to_s}
-		elsif "vertical"
-			coordinates = ((at_coordinate.chars.first.ord)..(at_coordinate.chars.first.ord + ship_type.badass_rating)).map{|coord| coord.chr << at_coordinate.chars.last}
+  	coordinates_for(at_coordinate, ship_type.badass_rating, horizontally: true).each do |x|
+  		board.grid[x].deploy!(ship_type)
 		end
-		coordinates.each do |coordinate|
-			@board.grid[coordinate].deploy!(ship_type)
-		end
+  end
+
+	def coordinates_for(starting_point, size, horizontally: true)
+		x,y, coords = starting_point.split("") << []
+		horizontally ? size.times{ |i|coords << "#{x.upcase}#{i + 1}"} : size.times{coords << "#{x.upcase}#{y}"; x = x.next}
+		coords
 	end
+
 end
