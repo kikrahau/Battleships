@@ -55,7 +55,7 @@ class Game
 	end
 
 	def update_fleet
-		@fleet.reject! { |ship| ship.floating ==  false }
+		current_player.fleet.reject! { |ship| ship.floating ==  false }
 	end
 
 	def fleet_count

@@ -1,6 +1,6 @@
 class Player
 
-	attr_accessor :board
+	attr_accessor :board, :fleet
 
 	def initialize(board = nil, fleet = nil)
 		@board = board

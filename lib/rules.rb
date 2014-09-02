@@ -43,7 +43,8 @@ module Rules
 		p "Please type the coordinates in the form of A1 or C4"
 		shot_coordinate = gets.chomp
 		other_player.board.check_coordinate(shot_coordinate)
-		player_fire_missile(shot_coordinate)	
+		player_fire_missile(shot_coordinate)
+		update_fleet	
 	end
 
 	def placing_turn

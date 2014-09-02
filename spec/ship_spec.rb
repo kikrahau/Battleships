@@ -28,7 +28,7 @@ describe Ship do
 	end
 
 	it 'should tally up the missile hits for future retribution!!!' do
-		Ship::DEFAULT_BADASS_RATING.times{ship.hit_counter}
+		ship.badass_rating.times{ship.hit_counter}
 		expect(ship.floating).to eq false
 	end
 
