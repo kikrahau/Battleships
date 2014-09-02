@@ -1,8 +1,11 @@
 require './lib/player'
 require './lib/display_boards'
 require './lib/board'
+require './lib/rules'
 
 class Game
+
+	include Rules
 
 	include DisplayBoards
 
@@ -15,29 +18,8 @@ class Game
 		@player_2_name = ""
 	end
 
-	def add!(player)
+	def add!(player = Player.new(Board.new, @fleet))
 		@players << player
-	end
-
-# we should add the players automatically to the game once names are collected
-# we should change the "player name" to name that was given on input
-
-	def get_name_player_1
-		p "Please enter name of Player 1:"
-		@player_1_name = gets.chomp
-		if @player_1_name == ""
-			@player_1_name = "Player 1"
-		end
-		@player_1_name
-	end
-
-	def get_name_player_2
-		p "Please enter name of Player 2:"
-		@player_2_name = gets.chomp
-		if @player_2_name == ""
-			@player_2_name = "Player 2"
-		end
-		@player_2_name
 	end
 
 	def place_ship(ship, ship_coordinate, direction)
@@ -81,7 +63,14 @@ class Game
 	end
 
 	def game_over
-		fleet.count == 0
+		current_player.fleet.count == 0 || other_player.fleet.count == 0
+	end
+
+	def start_playing
+		get_name_player_1
+		get_name_player_2
+		placing_turn
+		shooting_turn
 	end
 end
 

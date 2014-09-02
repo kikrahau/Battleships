@@ -9,7 +9,6 @@ describe Ship do
 	let(:battleship)	{ Ship::GunbustingBattleship.new }
 	let(:submarine) 	{ Ship::CannibalSubmarine.new }
 
-	# let(:cell) 	{ double :cell }
 
 	it "should have floating status upon initialization" do
 		expect(ship.floating).to eq true
@@ -41,6 +40,10 @@ describe Ship do
 
 		it 'should have a different badass rating' do
 			expect(destroyer.badass_rating).to eq 4
+		end
+
+		it "should have their individual name" do
+			expect(destroyer.name).to be :Destroyer
 		end
 	end
 

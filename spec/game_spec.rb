@@ -2,12 +2,12 @@ require 'game'
 
 describe Game do
 
-	let(:game) { Game.new }
-	let(:board) { Board.new }
+	let(:game)			{ Game.new  }
+	let(:board) 		{ Board.new }
 	let(:opponent_board) { Board.new }
-	let(:player1) { Player.new ( board ) }
-	let(:player2) { Player.new ( opponent_board ) }
-	let(:ship) { Ship::Destroyer.new }
+	let(:player1) 		{ Player.new ( board ) }
+	let(:player2) 		{ Player.new ( opponent_board ) }
+	let(:ship) 			{ Ship::Destroyer.new }
 
 	context 'initialization' do
 
@@ -21,8 +21,8 @@ describe Game do
 		end
 
 		it 'should be able to know, when to start' do
-			game.add!(player1)
-			game.add!(player2)
+			game.add!
+			game.add!
 			expect(game).to be_starting
 		end
 
@@ -105,15 +105,11 @@ describe Game do
 
 		it "should have access to the current players board" do
 			game.add!(player1)
-			game.add!(player2)
-			# allow(player1).to receive(:board).and_return(:board)
 			expect(game.own_board(player1)).to include("~")
 		end
 
 		it 'should have access to other players board' do
-			game.add!(player1)
 			game.add!(player2)
-			# allow(player2).to receive(:board).and_return(:board)
 			expect(game.opponents_board(player2)).to include("~")
 		end			
 

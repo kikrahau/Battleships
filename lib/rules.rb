@@ -1,28 +1,48 @@
-require 'game'
+require './lib/game'
 
-class Rules < Game
+module Rules
+
+	def get_name_player_1
+		p "Please enter name of Player 1:"
+		@player_1_name = gets.chomp
+		if @player_1_name == ""
+			@player_1_name = "Player 1"
+		end
+		@player_1_name
+	end
+
+	def get_name_player_2
+		p "Please enter name of Player 2:"
+		@player_2_name = gets.chomp
+		if @player_2_name == ""
+			@player_2_name = "Player 2"
+		end
+		@player_2_name
+	end
 
 	def placement_phase
 		@fleet.each do |ship|	
-			p "Where would you like to place #{ship}?"
+			p "Where would you like to place the #{ship.name}?"
 			p "It occupies #{ship.badass_rating} squares."
 			ship_coordinate = gets.chomp
+			current_player.board.check_coordinate(ship_coordinate)
 			p "Which direction? Type H for horizontal or V for vertical"
 			direction = gets.chomp
-			if direction == "V"
-				direction = "vertical"
-			elsif direction == "H"
+			if direction == "H"
 				direction = "horizontal"
+			else
+				direction = "vertical"
 			end
 			place_ship(ship, ship_coordinate, direction)
-		p "All ships have been placed!"
 		end
+		p "All ships have been placed!"
 	end
 
 	def shooting_phase
 		p "Where would you like to shoot?"
 		p "Please type the coordinates in the form of A1 or C4"
 		shot_coordinate = gets.chomp
+		other_player.board.check_coordinate(shot_coordinate)
 		player_fire_missile(shot_coordinate)	
 	end
 
@@ -35,11 +55,5 @@ class Rules < Game
 			shooting_phase
 			change_turns
 		end
-	end
-
-
-	def game
-		placement_turn
-		shooting_turn
 	end
 end

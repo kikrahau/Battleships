@@ -19,6 +19,8 @@ attr_accessor :cell_content, :hit
 
 	def deploy!(ship)
 		@cell_content = ship
+	rescue
+		puts "You can't deploy ships outside the grid"
 	end
 
 	def has_ship?
