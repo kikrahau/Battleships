@@ -2,18 +2,16 @@ require './lib/game'
 
 module Rules
 
-	def get_name_player_1
-		p "Please enter name of Player 1:"
-		@player_1_name = gets.chomp
+	def get_name_player_1(name)
+		@player_1_name = name
 		if @player_1_name == ""
 			@player_1_name = "Player 1"
 		end
 		@player_1_name
 	end
 
-	def get_name_player_2
-		p "Please enter name of Player 2:"
-		@player_2_name = gets.chomp
+	def get_name_player_2(name)
+		@player_2_name = name
 		if @player_2_name == ""
 			@player_2_name = "Player 2"
 		end
@@ -21,7 +19,7 @@ module Rules
 	end
 
 	def placement_phase
-		@fleet.each do |ship|	
+		@fleet.each do |ship|
 			p "Where would you like to place the #{ship.name}?"
 			p "It occupies #{ship.badass_rating} squares."
 			ship_coordinate = gets.chomp
@@ -44,7 +42,7 @@ module Rules
 		shot_coordinate = gets.chomp
 		other_player.board.check_coordinate(shot_coordinate)
 		player_fire_missile(shot_coordinate)
-		update_fleet	
+		update_fleet
 	end
 
 	def placing_turn
