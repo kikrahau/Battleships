@@ -94,7 +94,7 @@ describe Game do
 			expect(player2.board.grid["A1"].has_hit?).to be true
 		end
 
-		it "can loose ships out of his fleet when they are sunk" do
+		xit "can loose ships out of his fleet when they are sunk" do
 			game.fleet[0].sink!
 			expect(game.update_fleet.count).to eq 4
 		end

@@ -1,6 +1,6 @@
 require './lib/cell'
-require 'terminal-table'
-require 'colored'
+#require 'terminal-table'
+#require 'colored'
 
 class Board
 

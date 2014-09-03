@@ -41,7 +41,7 @@ describe Rules do
 			expect(game.own_board(player1).select {|ship| ship == "S"}.count).to eq(17)
 		end	
 
-		it "can prompt player to take a shot at a coordinate" do
+		xit "can prompt player to take a shot at a coordinate" do
 			game.add!(player1)
 			game.add!(player2)
 			allow(game).to receive(:gets).and_return("A1")
