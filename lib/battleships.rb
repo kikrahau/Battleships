@@ -1,10 +1,17 @@
 require 'sinatra/base'
+require './lib/game'
 
 class Battleships < Sinatra::Base
 
-set :views, Proc.new{File.join(root,'..','views')}
+
+	enable :sessions
+
+	set :views, Proc.new{File.join(root,'..','views')}
+
+	GAME = Game.new
 
   get '/' do
+  	p GAME
 		erb :index
   end
 
@@ -20,7 +27,14 @@ set :views, Proc.new{File.join(root,'..','views')}
 	 	if @name == "" 
 	 		redirect '/new_game?errors=Please%20re-enter%20your%20name'
 	 	end
+	 	player = Player.new(@name)
+	 	# GAME.add(player)
+	 	# session['me']= player.object_id
     erb :game_confirmation
+  end
+
+  get '/session_full' do 
+  	erb :session_full
   end
 
   # start the server if ruby file executed directly

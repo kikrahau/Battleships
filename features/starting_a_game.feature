@@ -30,6 +30,7 @@ Feature: Starting the game
 
 	Scenario: Trying to register a third player
 		Given I am on the new game page
+		And "Nick" and "Michelle" have registered
 		When I fill "player" with "Ruth"
 		And I press "Go!"
 		Then I should see "Sorry, the battleship server is currently full"
